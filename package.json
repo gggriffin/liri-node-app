@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/gggriffin/liri-node-app#readme",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "dotenv": "^7.0.0"
   }
 }
