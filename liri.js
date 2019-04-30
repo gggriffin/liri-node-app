@@ -3,12 +3,16 @@ require("dotenv").config();
 const keys = require('./keys.js');
 const axios = require('axios');
 const moment = require('moment');
+const fs = require('fs');
 
-const command = process.argv[2];
-const search = process.argv.slice(3).join(" ");
+const spotify = keys.spotify
+
+let command = process.argv[2];
+let search = process.argv.slice(3).join(" ");
 let bandsURL = 'https://rest.bandsintown.com/artists/' + search + '/events?app_id=codingbootcamp';
-var spotifyURL = 'https://api.spotify.com/v1/search?q=' + search + '&type=track';
-var movieURL = 'http://www.omdbapi.com/?t=' + search + '&y=&plot=short&apikey=trilogy';
+let spotifyURL = 'https://api.spotify.com/v1/search?q=' + search + '&type=track';
+let movieURL = 'http://www.omdbapi.com/?t=' + search + '&y=&plot=short&apikey=trilogy';
+
 
 if (command === 'concert-this') {
     axios
@@ -51,9 +55,21 @@ if (command === 'concert-this') {
             console.log(movieData);
         })
 
-}  else if (command === 'do-what-it-says')  {
-    
+} else if (command === 'do-what-it-says')  {
+    fs.readFile('random.txt', 'utf8', function(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        dataArr = data.split(',')
+        console.log(dataArr);
+        let command = dataArr[0];
+        let search = dataArr[1];
+        console.log('New command: ' + command);
+        console.log('New search: ' + search);
+        
+    })
 }
+
 
    /*else if (command === 'spotify-this-song') {
     axios
