@@ -16,7 +16,7 @@ Concert-this pulls up all upcoming concerts for a given artist and formats them 
 
 Movie-this pulls uses the IMDB API to pull up several pieces of information for any movie in their database. This includes plot summary, date of release and cast.
 
-<img src="/images/LiriMovie.png" width=300px; height=200px;>
+<img src="/images/LiriMovie.png" width=500px; height=200px;>
 
 Spotify-this takes a request for any song and uses the Spotify API to generate information regarding the artist, album and release date. It also returns a 30 second sample of the requested song. 
 
